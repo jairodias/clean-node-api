@@ -1,4 +1,4 @@
-import { EmailValidatorAdapter } from './email-validator'
+import { EmailValidatorAdapter } from './email-validator-adapter'
 
 describe('EmailValidator Adapter', () => {
   test('Should return false if validator returns false', () => {
