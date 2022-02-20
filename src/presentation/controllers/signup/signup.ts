@@ -3,12 +3,12 @@ import { badRequest, serverError, ok } from '../../helper/http-helper'
 import { HttpRequest, HttpResponse, Controller, EmailValidator, AddAccount } from './signup-protocols'
 
 export class SignUpController implements Controller {
-  constructor (
+  constructor(
     private readonly emailValidator: EmailValidator,
     private readonly addAccount: AddAccount
   ) { }
 
-  async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
+  async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
 
@@ -38,7 +38,7 @@ export class SignUpController implements Controller {
 
       return ok(account)
     } catch (error) {
-      return serverError()
+      return serverError(error)
     }
   }
 }
